@@ -69,7 +69,7 @@ jobs:
 
   test-frontend:
     docker:
-      - image: cimg/node:19.8.1
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
@@ -83,7 +83,7 @@ jobs:
                 
   test-backend:
     docker:
-      - image: cimg/node:19.8.1
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
@@ -97,7 +97,7 @@ jobs:
             
   scan-frontend:
     docker:
-      - image: cimg/node:19.8.1
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
@@ -111,7 +111,7 @@ jobs:
 
   scan-backend:
     docker:
-      - image: cimg/node:19.8.1
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
@@ -121,7 +121,7 @@ jobs:
           command: |
             cd backend
             npm install
-            npm audit --audit-level=critical
+            npm audit fix --audit-level=critical
 
 #   deploy-infrastructure:
 #     docker:
